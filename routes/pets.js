@@ -45,6 +45,7 @@ router.get('/', function(req, res){
 
 router.get('/:_id', function(req, res){
     var params = req.params;
+
     if(params._id) {
         Pet.find(params, function (error, pet) {
             res.send({ pet: pet });
