@@ -1,0 +1,21 @@
+//
+   Created by lsantis on 04/09/2014.
+
+extends layout
+block content
+    p
+    div.container-fluid
+        div.row
+            div.col-lg-6
+                h1= "Pet's details"
+                form.form-horizontal(action="/pets/edit", method="post")
+                    p
+                        input.form-control(type="text", name="pet_name", placeholder="Pet's Name")
+                    p
+                        input.form-control(type="text", name="type_of_animal", placeholder="Type of Animal")
+                    p
+                        input.form-control(type="text", name="age", placeholder="Pet's Age")
+                    p
+                        input.form-control(type="text", name="breed", placeholder="Pet's Breed")
+                    p
+                        button.btn.btn-warning(type="submit") Submit

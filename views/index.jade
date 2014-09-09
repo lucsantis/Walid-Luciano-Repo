@@ -1,0 +1,31 @@
+extends layout
+block content
+    p
+    div.container-fluid
+        div.row
+            div.col-lg-6
+                h1= "Pet's details"
+                form.form-horizontal(action="/pets", method="post")
+                    p
+                        input.form-control(type="text", name="pet_name", placeholder="Pet's Name")
+                    p
+                        input.form-control(type="text", name="type_of_animal", placeholder="Type of Animal")
+                    p
+                        input.form-control(type="text", name="age", placeholder="Pet's Age")
+                    p
+                        input.form-control(type="text", name="breed", placeholder="Pet's Breed")
+                    p
+                        button.btn.btn-warning(type="submit") Submit
+            div.col-lg-6
+                h1 List of pets
+                table.table
+                    - each item in pets
+                        tr
+                            td
+                                a(href="/pets?_id=#{item._id}") #{item.pet_name}
+                            td
+                                span.small #{item.type_of_animal}
+                            td
+                                a(href="/pets/edit") Edit
+                            td
+                                a(href="/pets/delete/#{item.id}") Delete
